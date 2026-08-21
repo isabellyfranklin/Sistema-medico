@@ -1,4 +1,4 @@
-#  Sistema Médico
+#  Sistema Médico (em andamento)
  
 Sistema web de gestão para clínicas médicas, desenvolvido com HTML, SCSS e TypeScript. O objetivo é oferecer um dashboard simples e funcional para organizar informações de pacientes, consultas e atendimentos.
  
