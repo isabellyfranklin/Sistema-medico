@@ -1,232 +1,207 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-body{
-    background-color:  rgb(245, 247, 250);
-    font-family: "Poppins", sans-serif;
+body {
+  background-color: rgb(245, 247, 250);
+  font-family: "Poppins", sans-serif;
 }
 
-.header-principal{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
+.header-principal {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.header-principal .logo {
+  display: flex;
+  justify-content: center;
+  margin: 13px 0px 0px 1rem;
+}
+.header-principal .logo img {
+  width: 35px;
+  height: 35px;
+}
+.header-principal .logo h1 {
+  font-size: 17px;
+  margin: 6px 4px 0px;
+  color: black;
+}
+.header-principal .navbar {
+  display: flex;
+}
+.header-principal .navbar-list {
+  display: flex;
+  list-style: none;
+  gap: 3rem;
+  margin: 10px 22px 0px 0px;
+}
+.header-principal .navbar-list li {
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+}
+.header-principal .navbar-list li:hover {
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+}
+.header-principal .navbar-list li:hover a {
+  color: white;
+  filter: brightness(0) invert(1);
+}
+.header-principal .navbar-list li.active {
+  background-color: black;
+}
+.header-principal .navbar-list a {
+  text-decoration: none;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0px 5px;
+}
+.header-principal .navbar-list img {
+  width: 20px;
+  height: 20px;
+  margin: 0px 5px 0px 0px;
 }
 
-.header-principal .logo{
-    display: flex;
-    justify-content: center;
-    margin: 13px 0px 0px 1rem ;
+main {
+  width: 100%;
 }
-
-.header-principal  .logo img{
-    width: 35px;
-    height: 35px;
+main .header-segundario {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px;
 }
-
-.header-principal  .logo h1{
-    font-size: 17px;
-    margin: 6px 4px 0px;
-    color: black;
-}
-
-.header-principal  .navbar{
-    display: flex;
-}
-
-.header-principal  .navbar-list{
-    display: flex;
-    list-style: none;
-    gap: 3rem;
-    margin: 10px 22px 0px 0px;
-}
-
-.header-principal  .navbar-list  li{
-    font-size: 15px;
-    font-weight: 500;
-    text-decoration: none;
-}
-.header-principal .navbar-list li:hover{
-    background-color: black;
-    color: white;     
-    border-radius: 10px;
-}
-
-.header-principal .navbar-list a{
-    text-decoration: none;
-    color: black;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 0px 5px;
-}
-
-.header-principal .navbar-list li:hover a{
-    color: white;
-}
-
-.header-principal .navbar-list li:hover a{
-filter: brightness(0) invert(1)
-}
-
-.header-principal .navbar-list img{
-   width: 20x;
-   height: 20px;
-   margin: 0px 5px 0px 0px;
-}
-
-main{
-    width: 100%;
-}
-
-main .header-segundario{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 20px
-}
-
-main .header-segundario h2{
-    font-size: 25px;
-    font-weight: 500;
-    margin-top: 1rem;
+main .header-segundario h2 {
+  font-size: 25px;
+  font-weight: 500;
+  margin-top: 1rem;
 }
 
 .gerenciamento {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
-
 .gerenciamento form,
 .gerenciamento .no-sistema {
-    background-color: #ffffff;
-    border: 1px solid #e5e5e5;
-    border-radius: 12px;
-    box-shadow: #6b7280;
-    padding: 24px;
-    border:  #b8bcc5bf solid 1px;
+  background-color: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  box-shadow: #6b7280;
+  padding: 24px;
+  border: rgba(184, 188, 197, 0.7490196078) solid 1px;
 }
-
-.gerenciamento form {
-    flex: 1;
-    max-width: 355px;
-    margin-left: 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    color: black;
-}
-
-.gerenciamento .no-sistema {
-    max-width: 1100px;
-    width: 950px;
-}
-
-.gerenciamento form .img-novo-medico{
-    width: 25px;
-    height: 25px;
-    margin: 0px 05px 0px 0px ;
-}
-
 .gerenciamento form h3,
-.no-sistema h3{
-    display: flex;
-    font-size: 17px;
-    font-weight: 550;
-    margin-top: 2px;
+.gerenciamento .no-sistema h3 {
+  display: flex;
+  font-size: 17px;
+  font-weight: 550;
+  margin-top: 2px;
 }
-
 .gerenciamento form p,
-.no-sistema p{
-    font-size: 15px;
-    font-weight: 400;
-    color: rgb(87, 84, 84);
-    margin-top: 2px;
-    margin-bottom: 15px;
+.gerenciamento .no-sistema p {
+  font-size: 15px;
+  font-weight: 400;
+  color: rgb(87, 84, 84);
+  margin-top: 2px;
+  margin-bottom: 15px;
 }
-
-.gerenciamento form label{
-    margin-top: 10px;
-    color: black;
-    font-size: 15px;
-    font-weight: 600; 
+.gerenciamento form {
+  flex: 1;
+  max-width: 355px;
+  margin-left: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: black;
 }
-
-.gerenciamento form input{
-    width: 300px;
-    height: 35px;
-    border: none;
-    border-radius: 5px;
-    margin: 2px;
-    background-color: rgba(222, 221, 221, 0.447);
+.gerenciamento form .img-novo-medico {
+  width: 25px;
+  height: 25px;
+  margin: 0px 5px 0px 0px;
 }
-
+.gerenciamento form label {
+  margin-top: 10px;
+  color: black;
+  font-size: 15px;
+  font-weight: 600;
+}
+.gerenciamento form input {
+  width: 300px;
+  height: 35px;
+  border: none;
+  border-radius: 5px;
+  margin: 2px;
+  background-color: rgba(222, 221, 221, 0.447);
+}
+.gerenciamento form input::-moz-placeholder {
+  color: #6a6a6b;
+  font-size: 13px;
+  padding: 0px 0pc 0px 10px;
+  opacity: 1;
+}
 .gerenciamento form input::placeholder {
-    color: #6a6a6b; 
-    font-size: 13px;
-    padding: 0px 0pc 0px 10px;
-    opacity: 1;
+  color: #6a6a6b;
+  font-size: 13px;
+  padding: 0px 0pc 0px 10px;
+  opacity: 1;
+}
+.gerenciamento form button {
+  width: 300px;
+  height: 40px;
+  background-color: black;
+  border: none;
+  border-radius: 10px;
+  color: rgb(207, 205, 205);
+  font-weight: 550;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+.gerenciamento .no-sistema {
+  flex: 2;
+  width: 950px;
+  max-width: 1100px;
 }
 
-.gerenciamento form button{
-    width: 300px;
-    height: 40px;
-    background-color: black;
-    border: none;
-    border-radius: 10px;
-    color: rgb(207, 205, 205);
-    font-weight: 550;
-    margin-top: 1rem;
-    cursor: pointer;
+.tabela {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 16px;
 }
-
-.no-sistema{
-    flex: 2;
-}
-
-.tabela{
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 16px;
-}
-
 .tabela th {
-    text-align: left;
-    color: #6b7280;
-    font-weight: 600;
-    font-size: 14px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid #e5e5e5;
+  text-align: left;
+  color: #6b7280;
+  font-weight: 600;
+  font-size: 14px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e5e5e5;
 }
-
 .tabela td {
-    padding: 14px 8px;
-    border-bottom: 1px solid #f0f0f0;
-    font-size: 14px;
+  padding: 14px 8px;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 14px;
 }
-
 .tabela tbody tr:last-child td {
-    border-bottom: none;
+  border-bottom: none;
 }
 
 .btn-excluir {
-    display: flex;
-    background: none;
-    border: none;
-    color: #dc2626;
-    cursor: pointer;
-    font-size: 16px;
-    cursor: pointer;
+  display: flex;
+  background: none;
+  border: none;
+  color: #dc2626;
+  cursor: pointer;
+  font-size: 16px;
 }
-
-.btn-excluir img{
-    width: 20px;
-    height: 20px;
-    filter: invert(13%) sepia(94%) saturate(7471%) hue-rotate(2deg) brightness(97%) contrast(118%);
-
-}
+.btn-excluir img {
+  width: 20px;
+  height: 20px;
+  filter: invert(13%) sepia(94%) saturate(7471%) hue-rotate(2deg) brightness(97%) contrast(118%);
+}/*# sourceMappingURL=medico.css.map */
