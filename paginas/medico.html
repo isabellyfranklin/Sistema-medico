@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-bt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/medico.css">
+    <title>Medicos</title>
+</head>
+<body>
+    <header class="header-principal">
+        <div class="logo">
+            <img src="../img/icons-estetoscópio-48.png" alt="Logo do site">
+            <h1>Sistema Médico</h1>
+        </div>
+        <div class="mobile" style="display: none;"></div>
+        <nav class="navbar">
+            <ul class="navbar-list">        
+                <li><a href="../index.html"><img src="../img/icon-home.svg" alt="icone casa">Inicio</a></li>
+                <li><a href="medico.html"><img src="../img/icon-stethoscope.svg" alt="icone medico">Medicos</a></li>
+                <li><a href="pacientes.html"><img src="../img/icons-pessoas-48.svg" alt="icone pacientes">Pacientes</a></li>
+                <li><a href="consulta.html"><img src="../img/icon-calendar-42.svg" alt="icone consulta">Consultas</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <header class="header-segundario">
+            <h2>Cadastro de Médicos</h2>
+            <p>Gerencie o cadastro de médicos do sistema</p>
+        </header>
+
+
+        <section class="gerenciamento">
+
+            <form action="">
+                <h3><img  class="img-novo-medico" src="../img/icon-user-add.svg" alt="">Novo Medico</h3>
+                <p>Preencha os dados do médico</p>
+
+                <label for="">Nome Completo</label>
+                <input type="text" placeholder="Dr. João Silva">
+                <label for="">CRM*</label>
+                <input type="text" placeholder="12345-SP">
+                <label for="">Especialidade*</label>
+                <input type="text" placeholder="Cardiologia">
+                <label for="">Telefone</label>
+                <input type="text" placeholder="(11)933542074">
+                <label for="">E-mail</label>
+                <input type="text" placeholder="medico@hospital.com">
+
+                <button>Cadastrar de Médico</button>
+    
+            </form>
+
+           <article class="no-sistema">
+                <h3>Médicos Cadastrados</h3>
+                <p>Total de <span id="total-de-medicos-cadastrados">10</span> médico(s) no sistema</p>
+
+                <table class="tabela" id="tabela-medicos">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>CRM</th>
+                        <th>Especialidade</th>
+                        <th>Telefone</th>
+                        <th>E-mail</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+
+                <tbody id="medicos-cadastrado">
+                    
+                        <tr>
+                            <td>Dr. João Silva</td>
+                            <td>12345-SP</td>
+                            <td>Cardiologia</td>
+                            <td>(11) 98765-4321</td>
+                            <td>joao.silva@hospital.com</td>
+                            <td><button class="btn-excluir"><img src="../img/icon-trash.svg" alt="Icone trash"></button></td>
+                        </tr>
+
+                        <!-- aqui o JS vai inserir uma <tr> pra cada médico -->
+
+                </tbody>
+
+                </table>
+            </article>
+        </section>
+    </main>
+    <script src="../dist/script.js"></script>
+</body>
+</html>

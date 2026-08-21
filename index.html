@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Inicio</title>
+</head>
+<body>
+    <header class="header-principal">
+        <div class="logo">
+            <img src="img/icons-estetoscópio-48.png" alt="Logo do site">
+            <h1>Sistema Médico</h1>
+        </div>
+        <div class="mobile" style="display: none;"></div>
+        <nav class="navbar">
+            <ul class="navbar-list">        
+                <li><a href="index.html"><img src="img/icon-home.svg" alt="icone casa">Inicio</a></li>
+                <li><a href="paginas/medico.html"><img src="img/icons-estetoscópio-48.png" alt="icone medico">Medicos</a></li>
+                <li><a href="paginas/pacientes.html"><img src="img/icons-pessoas-48.svg" alt="icone pacientes">Pacientes</a></li>
+                <li><a href="paginas/consulta.html"><img src="img/icon-calendar-42.svg" alt="icone consulta">Consultas</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <header class="header-secundario">
+            <h2>Dashboard</h2>
+            <p>Bem-vindo ao sistema de gerenciamento medico</p>
+        </header>
+
+        <section class="todo-sistema" >
+            
+            <article class="card">
+                <h3>Médicos</h3>
+                <span><img src="img/icon-stethoscope.svg" alt="icone medico"></span>
+
+                <div class="card-info">
+                    <span id="total-medico"></span>
+                    <p>Gerenciar cadastro de médico</p>
+                </div>
+            </article>
+
+            <article class="card">
+                <h3>Pacientes</h3>
+                <span><img src="img/icons-pessoas-48.svg" alt="icone pacientes"></span>
+
+                <div class="card-info">
+                    <span id="total-pacientes">2</span>
+                    <p>Gerenciar cadastro de pacientes</p>
+                </div>
+            </article>
+
+            <article class="card">
+                <h3>Consultas</h3>
+                <span><img src="img/icon-calendar-42.svg" alt=""></span>
+                <div class="card-info">
+                    <span id="total-consultas">10</span>
+                    <p>Gerenciar agendamentos</p>
+                </div>
+            </article>
+
+            <article class="card">
+                <h3>Agendadas</h3>
+                <span><img src="img/icon-consultas-agendadas.png" alt="icone agendamentos"></span>
+
+                <div class="card-info">
+                    <span id="total-agendamentos"></span>
+                    <p>Consultas pendentes</p>
+                </div>
+            </article>
+        </section>
+
+        <section class="gerenciamento">
+
+            <div class="navegacao">
+                <h1>Açoes Rapidas</h1>
+                <p>Acesso rápido às principais funcionalidades</p>
+
+                <div class="links">
+                    <a href="paginas/medico.html"><img src="img/icon-stethoscope.svg" alt="icone cadastra medico"> Cadastra medico</a>
+                    <a href="paginas/pacientes.html"><img src="img/icons-pessoas-48.svg" alt="icone cadastra medico"> Cadastra Paciente</a>
+                    <a href="paginas/consulta.html"><img src="img/icon-calendar-42.svg" alt="icone cadastra medico"> Agendar consulta</a>
+                
+                </div>
+            </div>
+
+            <div class="lista-proxima-consultas" >
+                <h1>Proximas Consultas </h1>
+                <p>Consultas agendadas para os proximos dias</p>
+
+                <ul >
+                    <li>
+                        <h1>Nome do paciente </h1>
+                        <h2>Nome do Médico</h2>
+                        <div >
+
+                        </div>
+
+                    </li>
+                </ul>
+            </div>
+            
+
+        </section>
+
+    </main>
+    <script src="dist/script.js"></script>
+</body>
+</html>

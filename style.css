@@ -1,0 +1,214 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --cor-cinza: #6b7280;
+}
+
+body {
+  background-color: rgb(245, 247, 250);
+  font-family: "Poppins", sans-serif;
+}
+
+.header-principal {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.header-principal .logo {
+  display: flex;
+  justify-content: center;
+  margin: 13px 0px 0px 1rem;
+}
+.header-principal .logo img {
+  width: 35px;
+  height: 35px;
+}
+.header-principal .logo h1 {
+  font-size: 17px;
+  margin: 6px 4px 0px;
+  color: black;
+}
+.header-principal .navbar {
+  display: flex;
+}
+.header-principal .navbar-list {
+  display: flex;
+  list-style: none;
+  gap: 3rem;
+  margin: 10px 22px 0px 0px;
+}
+.header-principal .navbar-list li {
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+}
+.header-principal .navbar-list li:hover {
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+}
+.header-principal .navbar-list li:hover a {
+  color: white;
+  filter: brightness(0) invert(1);
+}
+.header-principal .navbar-list a {
+  text-decoration: none;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0px 5px;
+}
+.header-principal .navbar-list img {
+  width: 20px;
+  height: 20px;
+  margin: 0px 5px 0px 0px;
+}
+
+main {
+  width: 100%;
+}
+main .header-secundario {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px 2.5rem 2px;
+}
+main .header-secundario h2 {
+  font-size: 25px;
+  font-weight: 500;
+  margin-top: 1rem;
+}
+main .todo-sistema {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+main .todo-sistema .card {
+  width: 225px;
+  height: 140px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 15px;
+  border: solid rgba(192, 191, 191, 0.631) 1px;
+  margin: 30px;
+  position: relative;
+}
+main .todo-sistema .card h3 {
+  font-size: 12px;
+  font-weight: 600;
+}
+main .todo-sistema .card > span {
+  position: absolute;
+  top: 20px;
+  right: 18px;
+  display: flex;
+  width: 30px;
+  height: 30px;
+  background-color: rgba(57, 52, 52, 0.267);
+  border-radius: 7px;
+  padding: 5px;
+}
+main .todo-sistema .card .card-info {
+  position: absolute;
+  bottom: 13px;
+}
+main .todo-sistema .card .card-info span {
+  font-size: 17px;
+  font-weight: 700;
+}
+main .todo-sistema .card .card-info p {
+  font-size: 10px;
+  color: var(--cor-cinza);
+}
+
+.gerenciamento {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  gap: 3rem;
+}
+.gerenciamento .navegacao {
+  width: 350px;
+  height: 200px;
+  padding: 10px;
+  background-color: white;
+  border: solid rgba(192, 191, 191, 0.631) 1px;
+  border-radius: 15px;
+  margin-left: 2.2rem;
+  display: flex;
+  flex-direction: column;
+}
+.gerenciamento .navegacao h1 {
+  font-size: 15px;
+  font-weight: 500;
+  padding: 10px 10px 0px;
+}
+.gerenciamento .navegacao p {
+  font-size: 12px;
+  color: var(--cor-cinza);
+  padding: 0px 10px 10px;
+}
+.gerenciamento .navegacao .links {
+  width: 290px;
+  padding: 0px 13px 0px;
+}
+.gerenciamento .navegacao .links a {
+  display: flex;
+  color: black;
+  text-decoration: none;
+  border: solid rgba(192, 191, 191, 0.631) 1px;
+  border-radius: 5px;
+  padding: 3.5px;
+  margin: 1px;
+  font-size: 12px;
+  cursor: pointer;
+}
+.gerenciamento .navegacao .links a img {
+  width: 17px;
+  height: 17px;
+  margin: 1px 5px 0px 5px;
+}
+.gerenciamento .navegacao .links a:hover {
+  background-color: rgba(224, 224, 224, 0.596);
+}
+.gerenciamento .lista-proxima-consultas {
+  width: 670px;
+  background-color: white;
+  border: solid rgba(192, 191, 191, 0.631) 1px;
+  border-radius: 15px;
+  padding: 10px;
+}
+.gerenciamento .lista-proxima-consultas h1 {
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 10px 0px;
+}
+.gerenciamento .lista-proxima-consultas p {
+  font-size: 11px;
+  color: var(--cor-cinza);
+  padding: 0px 10px 0px;
+}
+.gerenciamento .lista-proxima-consultas ul {
+  width: 100%;
+}
+.gerenciamento .lista-proxima-consultas ul li {
+  background-color: rgb(200, 198, 198);
+  list-style: none;
+  margin: 10px;
+  border-radius: 10px;
+}
+.gerenciamento .lista-proxima-consultas ul li h1 {
+  font-size: 10px;
+}
+.gerenciamento .lista-proxima-consultas ul li h2 {
+  font-size: 9px;
+  margin-left: 10px;
+  font-weight: 500;
+}/*# sourceMappingURL=style.css.map */
