@@ -5,8 +5,28 @@
   box-sizing: border-box;
 }
 
+:root {
+  /* Cores principais */
+  --cor-fundo: rgb(245, 247, 250);
+  --cor-branco: #ffffff;
+  --cor-preto: black;
+  /* Tons de cinza */
+  --cor-cinza: #6b7280;
+  --cor-texto-secundario: rgb(87, 84, 84);
+  --cor-placeholder: #6a6a6b;
+  --cor-botao-texto: rgb(255, 255, 255);
+  /* Bordas */
+  --cor-borda-clara: #e5e5e5;
+  --cor-borda: #b8bcc5bf;
+  --cor-borda-tabela: #f0f0f0;
+  /* Input */
+  --cor-fundo-input: rgba(222, 221, 221, 0.447);
+  /* Excluir */
+  --cor-vermelho: #dc2626;
+}
+
 body {
-  background-color: rgb(245, 247, 250);
+  background-color: var(--cor-fundo);
   font-family: "Poppins", sans-serif;
 }
 
@@ -27,7 +47,7 @@ body {
 .header-principal .logo h1 {
   font-size: 17px;
   margin: 6px 4px 0px;
-  color: black;
+  color: var(--cor-preto);
 }
 .header-principal .navbar {
   display: flex;
@@ -44,20 +64,20 @@ body {
   text-decoration: none;
 }
 .header-principal .navbar-list li:hover {
-  background-color: black;
-  color: white;
+  background-color: var(--cor-preto);
+  color: var(--cor-branco);
   border-radius: 10px;
 }
 .header-principal .navbar-list li:hover a {
-  color: white;
+  color: var(--cor-branco);
   filter: brightness(0) invert(1);
 }
 .header-principal .navbar-list li.active {
-  background-color: black;
+  background-color: var(--cor-preto);
 }
 .header-principal .navbar-list a {
   text-decoration: none;
-  color: black;
+  color: var(--cor-preto);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -91,12 +111,12 @@ main .header-segundario h2 {
 }
 .gerenciamento form,
 .gerenciamento .no-sistema {
-  background-color: #ffffff;
-  border: 1px solid #e5e5e5;
+  background-color: var(--cor-branco);
+  border: 1px solid var(--cor-borda-clara);
   border-radius: 12px;
-  box-shadow: #6b7280;
+  box-shadow: var(--cor-cinza);
   padding: 24px;
-  border: rgba(184, 188, 197, 0.7490196078) solid 1px;
+  border: var(--cor-borda) solid 1px;
 }
 .gerenciamento form h3,
 .gerenciamento .no-sistema h3 {
@@ -109,7 +129,7 @@ main .header-segundario h2 {
 .gerenciamento .no-sistema p {
   font-size: 15px;
   font-weight: 400;
-  color: rgb(87, 84, 84);
+  color: var(--cor-texto-secundario);
   margin-top: 2px;
   margin-bottom: 15px;
 }
@@ -120,7 +140,7 @@ main .header-segundario h2 {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  color: black;
+  color: var(--cor-preto);
 }
 .gerenciamento form .img-novo-medico {
   width: 25px;
@@ -129,7 +149,7 @@ main .header-segundario h2 {
 }
 .gerenciamento form label {
   margin-top: 10px;
-  color: black;
+  color: var(--cor-preto);
   font-size: 15px;
   font-weight: 600;
 }
@@ -139,30 +159,70 @@ main .header-segundario h2 {
   border: none;
   border-radius: 5px;
   margin: 2px;
-  background-color: rgba(222, 221, 221, 0.447);
+  background-color: var(--cor-fundo-input);
 }
 .gerenciamento form input::-moz-placeholder {
-  color: #6a6a6b;
+  color: var(--cor-placeholder);
   font-size: 13px;
   padding: 0px 0pc 0px 10px;
   opacity: 1;
 }
 .gerenciamento form input::placeholder {
-  color: #6a6a6b;
+  color: var(--cor-placeholder);
   font-size: 13px;
   padding: 0px 0pc 0px 10px;
   opacity: 1;
 }
-.gerenciamento form button {
+.gerenciamento form select {
   width: 300px;
   height: 40px;
-  background-color: black;
+  padding: 0 12px;
+  border: 1px solid var(--cor-borda);
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  background-color: white;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+.gerenciamento form .btns {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.gerenciamento form .btns button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 220px;
+  height: 40px;
   border: none;
   border-radius: 10px;
-  color: rgb(207, 205, 205);
   font-weight: 550;
   margin-top: 1rem;
   cursor: pointer;
+}
+.gerenciamento form .btns button.btn-salvar {
+  background-color: var(--cor-preto);
+  color: var(--cor-botao-texto);
+  transition: all 0.3s;
+}
+.gerenciamento form .btns button.btn-salvar:hover {
+  background-color: rgb(40, 39, 39);
+}
+.gerenciamento form .btns button.btn-cancelar {
+  color: white;
+  background-color: var(--cor-vermelho);
+  transition: all 0.3s;
+}
+.gerenciamento form .btns button.btn-cancelar:hover {
+  color: var(--cor-vermelho);
+  background-color: var(--cor-branco);
+  border: solid var(--cor-borda-clara) 2px;
 }
 .gerenciamento .no-sistema {
   flex: 2;
@@ -177,16 +237,19 @@ main .header-segundario h2 {
 }
 .tabela th {
   text-align: left;
-  color: #6b7280;
+  color: var(--cor-cinza);
   font-weight: 600;
   font-size: 14px;
   padding-bottom: 12px;
-  border-bottom: 1px solid #e5e5e5;
+  border-bottom: 1px solid var(--cor-borda-clara);
 }
 .tabela td {
   padding: 14px 8px;
-  border-bottom: 1px solid #f0f0f0;
+  border-bottom: 1px solid var(--cor-borda-tabela);
   font-size: 14px;
+}
+.tabela tbody tr {
+  overflow: scroll;
 }
 .tabela tbody tr:last-child td {
   border-bottom: none;
@@ -196,7 +259,7 @@ main .header-segundario h2 {
   display: flex;
   background: none;
   border: none;
-  color: #dc2626;
+  color: var(--cor-vermelho);
   cursor: pointer;
   font-size: 16px;
 }
