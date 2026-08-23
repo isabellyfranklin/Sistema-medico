@@ -47,28 +47,28 @@
                 <h3><img  class="img-novo-medico" src="../img/icon-editor.svg" alt="icone">Editar Paciente</h3>
                 <p>Atualize os dados do paciente</p>
 
-                <label for="">Nome Completo</label>
-                <input type="text" placeholder="Carlo Oliveira" required autocomplete="off">
+                <label for="nome-paciente">Nome Completo</label>
+                <input type="text" id="nome-paciente" placeholder="Carlo Oliveira" required autocomplete="off">
 
-                <label for="">CPF*</label>
-                <input type="text" placeholder="123.456.789-00" required >
+                <label for="cpf-paciente">CPF*</label>
+                <input type="text" id="cpf-paciente" placeholder="123.456.789-00" required >
 
-                <label for="">Data de Nacimento*</label>
-                <input type="date" id="data-nascimento" name="data-nascimento" required autocomplete="off">
+                <label for="nasci-paciente">Data de Nacimento*</label>
+                <input type="date" id="nasci-paciente" name="data-nascimento" required autocomplete="off">
 
-                <label for="">Telefone</label>
-                <input type="tel" placeholder="(11)933542074" autocomplete="off">
+                <label for="tel-paciente">Telefone</label>
+                <input type="tel" id="tel-paciente" placeholder="(11)933542074" autocomplete="off">
 
-                <label for="">E-mail</label>
-                <input type="email" placeholder="paciente@email.com" autocomplete="off">
+                <label for="email-paciente">E-mail</label>
+                <input type="email" id="email-paciente" placeholder="paciente@email.com" autocomplete="off">
 
-                <label for="">Endereço</label>
-                <input type="text" placeholder="Rua das Flores 123" autocomplete="off">
+                <label for="endereco-paciente">Endereço</label>
+                <input type="text" id="endereco-paciente" placeholder="Rua das Flores 123" autocomplete="off">
 
 
                 <div class="btns">
-                    <button type="submit" class="btn-salvar">Salvar</button>
-                    <button type="button" class="btn-cancelar"
+                    <button type="submit" onclick="cadastrarPaciente()" class="btn-salvar">Salvar</button>
+                    <button type="button"  onclick="cancelarCadastroPaciente()"  class="btn-cancelar"
                     ><span class="material-symbols-outlined">close</span>
                     Cancelar</button>
                 </div>

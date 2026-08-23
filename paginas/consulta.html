@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=close" />
     <link rel="shortcut icon" href="../img/icon-calendar-42.svg" type="image/x-icon">
     <link rel="stylesheet" href="css/medico.css">
     <title>Consulta</title>
@@ -23,6 +24,49 @@
             </ul>
         </nav>
     </header>
+
+    <main>
+         <header class="header-segundario">
+            <h2>Cadastro Consultas</h2>
+            <p>Gerencie os agendamentos de consultas</p>
+        </header>
+
+
+        <section class="gerenciamento">
+
+                <form action="">
+                <h3><img  class="img-novo-medico" src="../img/icon-calendar-42.svg" alt="">Novo Consulta</h3>
+                <p>Agende uma nova consulta</p>
+
+                <label for="">Medico*</label>
+                      
+                <label for="">Paciente*</label>
+
+                <label for="data-consulta">Data*</label>
+                <input type="date" name="" id="">
+
+                <label for="">Horário*</label>
+                <input type="time">
+
+                <label for="">Observaçoes</label>
+                <input type="text">
+           
+
+                <div class="btns">
+                    <button type="button" class="btn-salvar" onclick="agendarConsulta()">Cadastrar Médico</button>
+                    <button type="button" class="btn-cancelar" onclick="cancelarConsulta()"
+                    ><span class="material-symbols-outlined">close</span>
+                    Cancelar</button>
+                </div>
+    
+            </form>
+
+        </section>
+
+    </main>
+
+
+
     <script src="../dist/script.js"></script>
 </body>
 </html>

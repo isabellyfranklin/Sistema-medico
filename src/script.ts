@@ -72,6 +72,28 @@ function atualizarTotalMedicos(): void {
   localStorage.setItem("total-medicos", totalAtual.toString());
 }
 
-function salvaConsulta(){
+//ÁREA PACIENTE
+
+function cadastrarPaciente(){
+
+  const tabelaPaciente = document.getElementById("paciente-cadastrado")
+  const nomePaciente = document.getElementById("nome-paciente") as HTMLSpanElement
+  const cpfPaciente = document.getElementById("cpf-paciente")as HTMLSpanElement
+  const nasciPaciente = document.getElementById("nasci-paciente")as HTMLSpanElement
+  const telefonePaciente = document.getElementById("tel-paciente")as HTMLSpanElement
+  const emailPaciente = document.getElementById("email-paciente")as HTMLSpanElement
+
+  const novoPaciente = document.createElement("tr")
+  nomePaciente.innerHTML = `
+
+    <td>${nomePaciente}</td>,
+    <td>${cpfPaciente}</td>
+    <td>${nasciPaciente}</td>
+    <td>${nomePaciente}</td>
+    <td>${telefonePaciente}</td>
+    <td>${emailPaciente}</td>  
+  `
+    tabelaPaciente.appendChild(novoPaciente);
+
 
 }

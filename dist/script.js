@@ -60,6 +60,24 @@ function atualizarTotalMedicos() {
     }
     localStorage.setItem("total-medicos", totalAtual.toString());
 }
-function salvaConsulta() {
+//ÁREA PACIENTE
+function cadastrarPaciente() {
+    const tabelaPaciente = document.getElementById("paciente-cadastrado");
+    const nomePaciente = document.getElementById("nome-paciente");
+    const cpfPaciente = document.getElementById("cpf-paciente");
+    const nasciPaciente = document.getElementById("nasci-paciente");
+    const telefonePaciente = document.getElementById("tel-paciente");
+    const emailPaciente = document.getElementById("email-paciente");
+    const novoPaciente = document.createElement("tr");
+    nomePaciente.innerHTML = `
+
+    <td>${nomePaciente}</td>,
+    <td>${cpfPaciente}</td>
+    <td>${nasciPaciente}</td>
+    <td>${nomePaciente}</td>
+    <td>${telefonePaciente}</td>
+    <td>${emailPaciente}</td>  
+  `;
+    tabelaPaciente.appendChild(novoPaciente);
 }
 //# sourceMappingURL=script.js.map
