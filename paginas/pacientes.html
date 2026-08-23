@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=close" />
+    <link rel="shortcut icon" href="../img/icons-pessoas-48.svg" type="image/x-icon">
     <link rel="stylesheet" href="css/medico.css">
     <title>Pacientes</title>
 </head>
@@ -43,8 +44,8 @@
         <section class="gerenciamento">
             
             <form action="">
-                <h3><img  class="img-novo-medico" src="../img/icon-user-add.svg" alt="icone">Novo Medico</h3>
-                <p>Preencha os dados do médico</p>
+                <h3><img  class="img-novo-medico" src="../img/icon-editor.svg" alt="icone">Editar Paciente</h3>
+                <p>Atualize os dados do paciente</p>
 
                 <label for="">Nome Completo</label>
                 <input type="text" placeholder="Carlo Oliveira" required autocomplete="off">
@@ -74,33 +75,32 @@
             </form>
 
              <article class="no-sistema">
-                <h3>Médicos Cadastrados</h3>
-                <p>Total de <span id="total-de-pacientes-cadastrados">10</span> médico(s) no sistema</p>
+                <h3>Pacientes Cadastrados</h3>
+                <p>Total de <span id="total-de-pacientes-cadastrados"></span> médico(s) no sistema</p>
 
                 <table class="tabela" id="tabela-paciente">
                 <thead>
                     <tr>
                         <th>Nome</th>
-                        <th>CRM</th>
-                        <th>Especialidade</th>
+                        <th>CPF</th>
+                        <th>Nascimento</th>
                         <th>Telefone</th>
                         <th>E-mail</th>
-                        <th>Ações</th>
                     </tr>
                 </thead>
 
                 <tbody id="paciente-cadastrado">
                     
-                        <tr>
-                            <td>Dr. João Silva</td>
-                            <td>12345-SP</td>
-                            <td>Cardiologia</td>
+                        <!--<tr>
+                            <td>João Silva</td>
+                            <td>123.456.789.12</td>
+                            <td>13/05/2005</td>
                             <td>(11) 98765-4321</td>
                             <td>joao.silva@hospital.com</td>
                             <td><button class="btn-excluir"><img src="../img/icon-trash.svg" alt="Icone trash"></button></td>
                         </tr>
 
-                        <!-- aqui o JS vai inserir uma <tr> pra cada médico -->
+                        aqui o JS vai inserir uma <tr> de cada paciente  -->
 
                 </tbody>
 
