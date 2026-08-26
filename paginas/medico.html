@@ -40,10 +40,22 @@
                 <p>Preencha os dados do médico</p>
 
                 <label for="nome-medico">Nome Completo</label>
-                <input type="text" id="nome-medico" placeholder="Dr. João Silva" required autocomplete="off">
+                <input 
+                type="text" 
+                id="nome-medico"
+                placeholder="Dr. João Silva" 
+                maxlength="100"
+                required 
+                autocomplete="off">
                 
                 <label for="crm">CRM*</label>
-                <input type="text" id="crm" placeholder="12345-SP" required autocomplete="off"> 
+                <input 
+                type="text"
+                id="crm" 
+                maxlength="6"
+                placeholder="12345-SP" 
+                required
+                autocomplete="off"> 
 
                 <label for="especialidade-medico">Especialidade*</label>
                 <select id="especialidade-medico" required>
@@ -59,14 +71,26 @@
                 <!--<input type="text" placeholder="Cardiologia" required>-->
 
                 <label for="telefone-medico">Telefone</label>
-                <input type="tel" id="telefone-medico" placeholder="(11)933542074" autocomplete="off">
+                <input
+                type="tel"
+                id="telefone-medico"
+                placeholder="(11)933542074" 
+                maxlength="15"
+                pattern="\(\d{2}\)\s?\d{4,5}-\d{4}"
+                title="Formato esperado: (11) 93354-2074"
+                autocomplete="off">
 
                 <label for="email-medico">E-mail</label>
-                <input type="email" id="email-medico" placeholder="medico@hospital.com" autocomplete="off">
+                <input 
+                type="email"
+                id="email-medico"
+                placeholder="medico@hospital.com" 
+                maxlength="100"
+                autocomplete="off">
 
                 <div class="btns">
-                    <button type="button" class="btn-salvar" onclick="salvarMedico()">Cadastrar Médico</button>
-                    <button type="button" class="btn-cancelar" onclick="removerMedico()"
+                    <button type="button" class="btn-salvar" onclick="salvarFormularioMedico()">Cadastrar Médico</button>
+                    <button type="button" class="btn-cancelar" onclick="limparFormularioMedico()"
                     ><span class="material-symbols-outlined">close</span>
                     Cancelar</button>
                 </div>
@@ -77,34 +101,32 @@
                 <h3>Médicos Cadastrados</h3>
                 <p>Total de <span id="total-de-medicos-cadastrados">10</span> médico(s) no sistema</p>
 
-                <table class="tabela" id="tabela-medicos">
-                <thead>
-                    <tr>
-                        <th>Nome</th>
-                        <th>CRM</th>
-                        <th>Especialidade</th>
-                        <th>Telefone</th>
-                        <th>E-mail</th>
-                        <th>Ações</th>
-                    </tr>
-                </thead>
-
-                <tbody id="medicos-cadastrado">
-                    
-                        <!--<tr>
-                            <td>Dr. João Silva</td>
-                            <td>12345-SP</td>
-                            <td>Cardiologia</td>
-                            <td>(11) 98765-4321</td>
-                            <td>joao.silva@hospital.com</td>
-                            <td><button class="btn-excluir" onclick="this.closest('tr').remove()"><img src="../img/icon-trash.svg" alt="Icone trash"></button></td>
+                <div class="tabela-scroll">
+                    <table class="tabela" id="tabela-medicos">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>CRM</th>
+                            <th>Especialidade</th>
+                            <th>Telefone</th>
+                            <th>E-mail</th>
+                            <th>Ações</th>
                         </tr>
-
-                        aqui o JS vai inserir uma <tr> pra cada médico -->
-
-                </tbody>
-
-                </table>
+                    </thead>
+                    <tbody id="medicos-cadastrado">
+                    
+                            <!--<tr>
+                                <td>Dr. João Silva</td>
+                                <td>12345-SP</td>
+                                <td>Cardiologia</td>
+                                <td>(11) 98765-4321</td>
+                                <td>joao.silva@hospital.com</td>
+                                <td><button class="btn-excluir" onclick="this.closest('tr').remove()"><img src="../img/icon-trash.svg" alt="Icone trash"></button></td>
+                            </tr>
+                            aqui o JS vai inserir uma <tr> pra cada médico -->
+                    </tbody>
+                    </table>
+                </div>
             </article>
         </section>
     </main>

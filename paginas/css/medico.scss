@@ -118,14 +118,21 @@ main {
             font-size: 25px;
             font-weight: 500;
             margin-top: 1rem;
-        }
-    }
+
+            @media (max-width: 480px) {
+                font-size: 20px;
+            }
+        }    
+    }  
 }
 
 .gerenciamento {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
+    max-width: 1400px;  
+    margin: 0 auto;       
+    padding: 0 20px;      
 
     form,
     .no-sistema {
@@ -150,12 +157,15 @@ main {
             margin-top: 2px;
             margin-bottom: 15px;
         }
+
+        @media (max-width: 480px) {
+            padding: 16px;
+        }
     }
 
     form {
         flex: 1;
         max-width: 355px;
-        margin-left: 2rem;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -188,6 +198,10 @@ main {
                 padding: 0px 0pc 0px 10px;
                 opacity: 1;
             }
+
+             @media (max-width: 480px) {
+                width: 100%;
+            }
         }
 
         select {
@@ -203,6 +217,10 @@ main {
             appearance: none;
             -webkit-appearance: none;
             -moz-appearance: none;
+
+            @media (max-width: 480px) {
+                width: 100%;
+            }
         }
 
        
@@ -214,7 +232,7 @@ main {
             align-items: center;
             width: 100%;
 
-             button {
+            button {
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -247,11 +265,16 @@ main {
                         border: solid var(--cor-borda-clara) 2px;
                     }
                 }
+
+                @media (max-width: 480px) {
+                    width: 100%;
+                }
             }
-
-
+          
         }
-
+        @media (max-width: 968px) {
+            max-width: 100%;
+        }
 
     }
 
@@ -259,13 +282,23 @@ main {
         flex: 2;
         width: 950px;
         max-width: 1100px;
+
+         @media (max-width: 968px) {
+            width: 100%;
+        }
     }
+}
+
+.tabela-scroll {
+    width: 100%;
+    overflow-x: auto;
 }
 
 .tabela {
     width: 100%;
     border-collapse: collapse;
     margin-top: 16px;
+    min-width: 600px;
 
     th {
         text-align: left;
@@ -282,12 +315,14 @@ main {
         font-size: 14px;
     }
 
-    tbody tr{
-        overflow: scroll;
-     }
-
     tbody tr:last-child td {
         border-bottom: none;
+    }
+
+    @media (max-width: 768px) {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
     }
 }
 

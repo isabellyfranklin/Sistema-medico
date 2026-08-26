@@ -48,69 +48,102 @@
                 <p>Atualize os dados do paciente</p>
 
                 <label for="nome-paciente">Nome Completo</label>
-                <input type="text" id="nome-paciente" placeholder="Carlo Oliveira" required autocomplete="off">
+                <input 
+                type="text"
+                id="nome-paciente"
+                placeholder="Carlo Oliveira" 
+                required 
+                minlength="3"
+                maxlength="100"
+                title="Digite o nome completo (mínimo 3 caracteres)"
+                autocomplete="off">
 
                 <label for="cpf-paciente">CPF*</label>
-                <input type="text" id="cpf-paciente" placeholder="123.456.789-00" required >
+                <input
+                type="text"
+                id="cpf-paciente" 
+                placeholder="123.456.789-00"
+                maxlength="11"
+                pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
+                title="Formato esperado: 123.456.789-00"
+                autocomplete="off"
+                required >
 
                 <label for="nasci-paciente">Data de Nacimento*</label>
-                <input type="date" id="nasci-paciente" name="data-nascimento" required autocomplete="off">
+                <input 
+                type="date" 
+                id="nasci-paciente" 
+                name="data-nascimento" 
+                required
+                autocomplete="off">
 
                 <label for="tel-paciente">Telefone</label>
-                <input type="tel" id="tel-paciente" placeholder="(11)933542074" autocomplete="off">
+                <input 
+                type="tel" 
+                id="tel-paciente" 
+                placeholder="(11)933542074" 
+                maxlength="15"
+                pattern="\(\d{2}\)\s?\d{4,5}-\d{4}"
+                title="Formato esperado: (11) 93354-2074"
+                autocomplete="off">
 
                 <label for="email-paciente">E-mail</label>
-                <input type="email" id="email-paciente" placeholder="paciente@email.com" autocomplete="off">
+                <input 
+                type="email" 
+                id="email-paciente"
+                placeholder="paciente@email.com" 
+                maxlength="100"
+                autocomplete="off">
 
                 <label for="endereco-paciente">Endereço</label>
-                <input type="text" id="endereco-paciente" placeholder="Rua das Flores 123" autocomplete="off">
+                <input 
+                type="text" 
+                id="endereco-paciente" 
+                placeholder="Rua das Flores 123" 
+                maxlength="200"
+                autocomplete="off">
 
 
                 <div class="btns">
-                    <button type="submit" onclick="cadastrarPaciente()" class="btn-salvar">Salvar</button>
-                    <button type="button"  onclick="cancelarCadastroPaciente()"  class="btn-cancelar"
+                    <button type="button" onclick="salvarFormularioPaciente()" class="btn-salvar">Salvar</button>
+                    <button type="button"  onclick="limparFormularioPaciente()"  class="btn-cancelar"
                     ><span class="material-symbols-outlined">close</span>
                     Cancelar</button>
                 </div>
             </form>
 
-             <article class="no-sistema">
+            <article class="no-sistema">
                 <h3>Pacientes Cadastrados</h3>
                 <p>Total de <span id="total-de-pacientes-cadastrados"></span> médico(s) no sistema</p>
 
-                <table class="tabela" id="tabela-paciente">
-                <thead>
-                    <tr>
-                        <th>Nome</th>
-                        <th>CPF</th>
-                        <th>Nascimento</th>
-                        <th>Telefone</th>
-                        <th>E-mail</th>
-                    </tr>
-                </thead>
-
-                <tbody id="paciente-cadastrado">
-                    
-                        <!--<tr>
-                            <td>João Silva</td>
-                            <td>123.456.789.12</td>
-                            <td>13/05/2005</td>
-                            <td>(11) 98765-4321</td>
-                            <td>joao.silva@hospital.com</td>
-                            <td><button class="btn-excluir"><img src="../img/icon-trash.svg" alt="Icone trash"></button></td>
+                <div class="tabela-scroll">
+                    <table class="tabela" id="tabela-paciente">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>CPF</th>
+                            <th>Nascimento</th>
+                            <th>Telefone</th>
+                            <th>E-mail</th>
                         </tr>
-
-                        aqui o JS vai inserir uma <tr> de cada paciente  -->
-
-                </tbody>
-
-                </table>
+                    </thead>
+                    <tbody id="paciente-cadastrado">
+                    
+                            <!--<tr>
+                                <td>João Silva</td>
+                                <td>123.456.789.12</td>
+                                <td>13/05/2005</td>
+                                <td>(11) 98765-4321</td>
+                                <td>joao.silva@hospital.com</td>
+                                <td><button class="btn-excluir"><img src="../img/icon-trash.svg" alt="Icone trash"></button></td>
+                            </tr>
+                            aqui o JS vai inserir uma <tr> de cada paciente  -->
+                    </tbody>
+                    </table>
+                </div>
             </article>
-
-
         </section>
     </main>
-
     <script src="../dist/script.js"></script>                             
 </body>
 </html>

@@ -1,6 +1,6 @@
 "use strict";
 // ÁREA MEDICA
-function salvarMedico() {
+function salvarFormularioMedico() {
     const listaTabelaMedico = document.getElementById("medicos-cadastrado");
     const nomeMedico = document.getElementById("nome-medico");
     const crmMedico = document.getElementById("crm");
@@ -24,6 +24,11 @@ function salvarMedico() {
   `;
     atualizarTotalMedicos();
     listaTabelaMedico.appendChild(novaLinha);
+    nomeMedico.value = "";
+    crmMedico.value = "";
+    especialidadeMedico.value = "";
+    telMedico.value = "";
+    emailMedico.value = "";
     // salva o médico no localStorage
     const novoMedico = {
         nome: nomeMedico.value,
@@ -38,7 +43,7 @@ function salvarMedico() {
     localStorage.setItem("medicos", JSON.stringify(listaMedicos));
 }
 // REMOVER MEDICO
-function removerMedico() {
+function limparFormularioMedico() {
     const listaTabelaMedico = document.getElementById("medicos-cadastrado");
     const nomeMedico = document.getElementById("nome-medico");
     const crmMedico = document.getElementById("crm");
@@ -61,23 +66,63 @@ function atualizarTotalMedicos() {
     localStorage.setItem("total-medicos", totalAtual.toString());
 }
 //ÁREA PACIENTE
-function cadastrarPaciente() {
+function salvarFormularioPaciente() {
     const tabelaPaciente = document.getElementById("paciente-cadastrado");
     const nomePaciente = document.getElementById("nome-paciente");
     const cpfPaciente = document.getElementById("cpf-paciente");
     const nasciPaciente = document.getElementById("nasci-paciente");
     const telefonePaciente = document.getElementById("tel-paciente");
     const emailPaciente = document.getElementById("email-paciente");
-    const novoPaciente = document.createElement("tr");
-    nomePaciente.innerHTML = `
+    const enderecoPaciente = document.getElementById("endereco-paciente");
+    const novaLinhaPaciente = document.createElement("tr");
+    novaLinhaPaciente.innerHTML = `
 
-    <td>${nomePaciente}</td>,
-    <td>${cpfPaciente}</td>
-    <td>${nasciPaciente}</td>
-    <td>${nomePaciente}</td>
-    <td>${telefonePaciente}</td>
-    <td>${emailPaciente}</td>  
+    <td>${nomePaciente.value}</td>
+    <td>${cpfPaciente.value}</td>
+    <td>${nasciPaciente.value}</td>
+    <td>${telefonePaciente.value}</td>
+    <td>${emailPaciente.value}</td>  
+    <td>
+    <button class="btn-excluir" onclick="this.closest('tr').remove()">
+        <img src="../img/icon-trash.svg" alt="Icone excluir">
+      </button>
+    </td>  
   `;
-    tabelaPaciente.appendChild(novoPaciente);
+    tabelaPaciente.appendChild(novaLinhaPaciente);
+    //parte de localStorage
+    const salvaPaciente = {
+        nome: nomePaciente.value,
+        cpf: cpfPaciente.value,
+        nascimento: nasciPaciente.value,
+        telefone: telefonePaciente.value,
+        email: emailPaciente.value,
+        endereco: enderecoPaciente.value
+    };
+    const pacientesSalvos = localStorage.getItem("pacientes");
+    const listaPaciente = pacientesSalvos ? JSON.parse(pacientesSalvos) : [];
+    listaPaciente.push(salvaPaciente);
+    localStorage.setItem("pacientes", JSON.stringify(listaPaciente));
+    // limpa o formulário depois de salvar
+    nomePaciente.value = "";
+    cpfPaciente.value = "";
+    nasciPaciente.value = "";
+    telefonePaciente.value = "";
+    emailPaciente.value = "";
+    enderecoPaciente.value = "";
+}
+function limparFormularioPaciente() {
+    const tabelaPaciente = document.getElementById("paciente-cadastrado");
+    const nomePaciente = document.getElementById("nome-paciente");
+    const cpfPaciente = document.getElementById("cpf-paciente");
+    const nasciPaciente = document.getElementById("nasci-paciente");
+    const telefonePaciente = document.getElementById("tel-paciente");
+    const emailPaciente = document.getElementById("email-paciente");
+    const enderecoPaciente = document.getElementById("endereco-paciente");
+    nomePaciente.value = "";
+    cpfPaciente.value = "";
+    nasciPaciente.value = "";
+    telefonePaciente.value = "";
+    emailPaciente.value = "";
+    enderecoPaciente.value = "";
 }
 //# sourceMappingURL=script.js.map
