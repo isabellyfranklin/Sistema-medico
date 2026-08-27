@@ -31,6 +31,7 @@ body {
     width: 100%;
     display: flex;
     justify-content: space-between;
+    position: relative;
 
     .logo {
         display: flex;
@@ -49,54 +50,107 @@ body {
         }
     }
 
-    .navbar {
-        display: flex;
-    }
+    .mobile{
+        cursor: pointer;
+        position:absolute;
+        right: 2rem;
+        top: 20px;
+        
+        .lines{
+            width: 20px;
+            height: 2.5px;
+            margin: 3px;
+            background-color: var(--cor-preto);
+        }
 
-    .navbar-list {
-        display: flex;
-        list-style: none;
-        gap: 3rem;
-        margin: 10px 22px 0px 0px;
+        /* entender pq n ta pegando esse
+        @media (min-width: 768px) {
+            display: block;
 
-        li {
-            font-size: 15px;
-            font-weight: 500;
-            text-decoration: none;
-
-            &:hover {
-                background-color: var(--cor-preto);
-                color: var(--cor-branco);
-                border-radius: 10px;
-
-                a {
-                    color: var(--cor-branco);
-                    filter: brightness(0) invert(1);
-                }
+            .lines{
+                display: block;
             }
         }
+            */
+    }
 
-        a {
-            text-decoration: none;
-            color: var(--cor-preto);
+    .navbar {
+        display: flex;
+        position: relative;
+    
+        .navbar-list {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 10px 0px 5px;
-        }
+            list-style: none;
+            gap: 3rem;
+            margin: 10px 22px 0px 0px;
 
-        img {
+            li {
+             font-size: 15px;
+                font-weight: 500;
+                text-decoration: none;
+
+                &:hover {
+                    background-color: var(--cor-preto);
+                    color: var(--cor-branco);
+                    border-radius: 10px;
+
+                    a {
+                    color: var(--cor-branco);
+                    filter: brightness(0) invert(1);
+                    }
+                }
+            }
+
+            a {
+                text-decoration: none;
+                color: var(--cor-preto);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 10px 0px 5px;
+            }
+
+            img {
             width: 20px;
             height: 20px;
             margin: 0px 5px 0px 0px;
+            }
         }
-    }
+
+        @media (max-width: 768px) {
+            position: absolute;
+            z-index: 5;
+            top: 3rem;
+            left: 7px;
+            width: 100%;
+
+            .navbar-list{
+                width: 100%;
+                background-color: rgb(0, 0, 0);
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                gap: 2px;
+
+                li{
+                    width: 100%;
+                    background-color: rgb(253, 253, 253);
+                    margin: 5px;
+                }
+            }            
+        }
+    }           
 }
 
 main {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
     .header-secundario {
+        width: 100%;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -112,10 +166,11 @@ main {
     .todo-sistema {
         width: 100%;
         display: flex;
-        justify-content: flex-start;
+        flex-wrap: wrap;
         align-items: center;
+       
 
-        .card {
+        .card{
             text-decoration: none;
             width: 225px;
             height: 140px;
@@ -124,14 +179,13 @@ main {
             border-radius: 15px;
             border: solid var(--cor-borda) 1px;
             margin: 30px;
-           
             cursor: pointer;
-
             position: relative;
+
 
             h3 {
                 font-size: 12px;
-                font-weight: 600;
+                font-weight: 600;               
             }
 
             > span {
@@ -158,15 +212,25 @@ main {
                 p {
                     font-size: 10px;
                     color: var(--cor-cinza);
+
+
+                    @media (max-width: 768px) {
+                        font-size: 7px;
+                        font-weight: 500;
+                    }
                 }
         
-            }
-
-            
+            }          
 
            &:hover{
                 box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
             } 
+
+            @media (max-width:768px) {          
+                width: 170px;
+                height: 100px;
+                margin: 15px 10px 10px  2rem;
+                }
         }
 
     }
