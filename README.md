@@ -14,7 +14,6 @@ O **Sistema Médico** é um painel administrativo pensado para o dia a dia de um
 - [ ] Dashboard com resumo de atendimentos
 - [ ] Edição e exclusão de registros
 - [ ] Interface responsiva
-> Marque as funcionalidades já implementadas e adicione outras que fizerem sentido pro seu projeto.
  
 ##  Tecnologias utilizadas
  
