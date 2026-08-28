@@ -1,4 +1,8 @@
 "use strict";
+function clickMenuMedico() {
+    const navBar = document.getElementById("navbar-list");
+    navBar?.classList.toggle("ativo");
+}
 function salvarFormularioMedico() {
     const listaTabelaMedico = document.getElementById("medicos-cadastrado");
     const nomeMedico = document.getElementById("nome-medico");

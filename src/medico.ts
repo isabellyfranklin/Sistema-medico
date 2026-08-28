@@ -1,3 +1,9 @@
+function clickMenuMedico():void{
+    const navBar = document.getElementById("navbar-list")
+    
+      navBar?.classList.toggle("ativo")
+  }
+
 function salvarFormularioMedico():void {
 
   const listaTabelaMedico = document.getElementById("medicos-cadastrado") as HTMLTableSectionElement

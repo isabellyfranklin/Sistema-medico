@@ -1,4 +1,9 @@
 "use strict";
+// MENU 
+function clickMenu() {
+    const navBar = document.getElementById("navbar-list");
+    navBar?.classList.toggle("ativo");
+}
 // ATUALIZAR TOTAL DE MEDICO
 function atualizarTotalMedicosDashboard() {
     const medicosSalvos = localStorage.getItem("medicos");

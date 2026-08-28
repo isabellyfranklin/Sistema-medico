@@ -1,3 +1,10 @@
+// MENU 
+function clickMenu():void{
+    const navBar = document.getElementById("navbar-list")
+      navBar?.classList.toggle("ativo")
+
+  }
+
 // ATUALIZAR TOTAL DE MEDICO
 function atualizarTotalMedicosDashboard(): void {
   const medicosSalvos = localStorage.getItem("medicos");
