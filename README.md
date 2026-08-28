@@ -36,6 +36,12 @@ sistema-medico/
 │   ├── medico.html
 │   └── pacientes.html
 ├── src/
+  medico.ts     → cadastra, lista, remove médicos (dono da chave "medicos")
+  paciente.ts   → cadastra, lista, remove pacientes (dono da chave "pacientes")
+  consulta.ts   → LÊ "medicos" e "pacientes" do localStorage,
+                  usa pra preencher dois <select>,
+                  e depois salva a consulta em cima disso (chave "consultas")
+
 ├── index.html
 ├── package.json
 ├── package-lock.json

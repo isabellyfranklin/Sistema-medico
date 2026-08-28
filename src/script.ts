@@ -1,149 +1,66 @@
-// ÁREA MEDICA
-function salvarFormularioMedico():void {
-
-  const listaTabelaMedico = document.getElementById("medicos-cadastrado") as HTMLTableSectionElement
-  const nomeMedico = document.getElementById("nome-medico") as HTMLInputElement
-  const crmMedico = document.getElementById("crm") as HTMLInputElement
-  const especialidadeMedico = document.getElementById("especialidade-medico") as HTMLSelectElement;
-  const telMedico = document.getElementById("telefone-medico") as HTMLInputElement
-  const emailMedico = document.getElementById("email-medico") as HTMLInputElement
-
-  const novaLinha = document.createElement("tr")
-  novaLinha.innerHTML = `
-    <td>${nomeMedico.value}</td>
-    <td>${crmMedico.value}</td>
-    <td>${especialidadeMedico.value}</td>
-    <td>${telMedico.value}</td>
-    <td>${emailMedico.value}</td>
-    <td> 
-    <button
-     class="btn-excluir"
-     onclick="this.closest('tr').remove()"
-     ><img src="../img/icon-trash.svg" alt="Icone excluir">
-     </button>
-     </td>
-  `;
-
-  atualizarTotalMedicos();
-
-  listaTabelaMedico.appendChild(novaLinha);
-  nomeMedico.value = ""
-  crmMedico.value = ""
-  especialidadeMedico.value = ""
-  telMedico.value = ""
-  emailMedico.value = ""
-
-
-  // salva o médico no localStorage
-  const novoMedico = {
-    nome: nomeMedico.value,
-    crm: crmMedico.value,
-    especialidade: especialidadeMedico.value,
-    telefone: telMedico.value,
-    email: emailMedico.value
-  }
-
-  const medicosSalvos = localStorage.getItem("medicos")
+// ATUALIZAR TOTAL DE MEDICO
+function atualizarTotalMedicosDashboard(): void {
+  const medicosSalvos = localStorage.getItem("medicos");
   const listaMedicos = medicosSalvos ? JSON.parse(medicosSalvos) : [];
-  listaMedicos.push(novoMedico);
-  localStorage.setItem("medicos", JSON.stringify(listaMedicos))
-}
 
-// REMOVER MEDICO
-function limparFormularioMedico():void {
-
-  const listaTabelaMedico = document.getElementById("medicos-cadastrado") as HTMLTableSectionElement;
-  const nomeMedico = document.getElementById("nome-medico") as HTMLInputElement
-  const crmMedico = document.getElementById("crm") as HTMLInputElement
-  const especialidadeMedico = document.getElementById("especialidade-medico") as HTMLSelectElement;
-  const telMedico = document.getElementById("telefone-medico") as HTMLInputElement
-  const emailMedico = document.getElementById("email-medico") as HTMLInputElement
-
-  nomeMedico.value = ""
-  crmMedico.value = ""
-  especialidadeMedico.value = ""
-  telMedico.value = ""
-  emailMedico.value = ""
-}
-
-// ATUALIZAR TOTAL DE MEDICO NA TELA INICIAL
-function atualizarTotalMedicos(): void {
-  const totalAtual = document.querySelectorAll("#medicos-cadastrado tr").length
-
-  const totalSpanMedico = document.getElementById("total-de-medicos-cadastrados") as HTMLSpanElement
-  if (totalSpanMedico) {
-    totalSpanMedico.textContent = totalAtual.toString()
+  const totalMedicoSpan = document.getElementById("total-medico") as HTMLSpanElement;
+  if (totalMedicoSpan) {
+    totalMedicoSpan.textContent = listaMedicos.length.toString();
   }
-
-  localStorage.setItem("total-medicos", totalAtual.toString())
 }
 
-//ÁREA PACIENTE
-function salvarFormularioPaciente():void {
-
-  const tabelaPaciente = document.getElementById("paciente-cadastrado") as HTMLInputElement
-  const nomePaciente = document.getElementById("nome-paciente") as HTMLInputElement
-  const cpfPaciente = document.getElementById("cpf-paciente")as HTMLInputElement
-  const nasciPaciente = document.getElementById("nasci-paciente")as HTMLInputElement
-  const telefonePaciente = document.getElementById("tel-paciente")as HTMLInputElement
-  const emailPaciente = document.getElementById("email-paciente")as HTMLInputElement
-  const enderecoPaciente = document.getElementById("endereco-paciente")as HTMLInputElement
-
-  const novaLinhaPaciente = document.createElement("tr")
-  novaLinhaPaciente.innerHTML = `
-
-    <td>${nomePaciente.value}</td>
-    <td>${cpfPaciente.value}</td>
-    <td>${nasciPaciente.value}</td>
-    <td>${telefonePaciente.value}</td>
-    <td>${emailPaciente.value}</td>  
-    <td>
-    <button class="btn-excluir" onclick="this.closest('tr').remove()">
-        <img src="../img/icon-trash.svg" alt="Icone excluir">
-      </button>
-    </td>  
-  `
-  tabelaPaciente.appendChild(novaLinhaPaciente);
-
-  //parte de localStorage
-   const salvaPaciente = {
-  nome: nomePaciente.value,
-  cpf: cpfPaciente.value,
-  nascimento: nasciPaciente.value,
-  telefone: telefonePaciente.value,
-  email: emailPaciente.value,
-  endereco: enderecoPaciente.value
-  };
-
-
-  const pacientesSalvos = localStorage.getItem("pacientes");
-  const listaPaciente = pacientesSalvos ? JSON.parse(pacientesSalvos) : [];
-  listaPaciente.push(salvaPaciente);
-  localStorage.setItem("pacientes", JSON.stringify(listaPaciente));
-
-  // limpa o formulário depois de salvar
-  nomePaciente.value = ""
-  cpfPaciente.value = ""
-  nasciPaciente.value = ""
-  telefonePaciente.value = ""
-  emailPaciente.value = ""
-  enderecoPaciente.value =""
+if (document.getElementById("medicos-cadastrado")) {
+  carregarMedicosSalvos();
 }
 
-function limparFormularioPaciente(){
+atualizarTotalMedicosDashboard();
 
-  const tabelaPaciente = document.getElementById("paciente-cadastrado") as HTMLInputElement
-  const nomePaciente = document.getElementById("nome-paciente") as HTMLInputElement
-  const cpfPaciente = document.getElementById("cpf-paciente")as HTMLInputElement
-  const nasciPaciente = document.getElementById("nasci-paciente")as HTMLInputElement
-  const telefonePaciente = document.getElementById("tel-paciente")as HTMLInputElement
-  const emailPaciente = document.getElementById("email-paciente")as HTMLInputElement
-  const enderecoPaciente = document.getElementById("endereco-paciente")as HTMLInputElement
+// ATUALIZAR TOTAL DE PACIENTE
+function atualizarTotalPacientesDashboard(): void {
+  const pacientesSalvos = localStorage.getItem("pacientes")
+  const listaPacientes = pacientesSalvos ? JSON.parse(pacientesSalvos) : []
 
-  nomePaciente.value = ""
-  cpfPaciente.value = ""
-  nasciPaciente.value = ""
-  telefonePaciente.value = ""
-  emailPaciente.value = ""
-  enderecoPaciente.value =""
+  const totalPacienteSpan = document.getElementById("total-pacientes") as HTMLSpanElement;
+  if (totalPacienteSpan) {
+    totalPacienteSpan.textContent = listaPacientes.length.toString()
+  }
 }
+
+if (document.getElementById("paciente-cadastrado")) {
+  carregarPacientesSalvos();
+}
+
+atualizarTotalPacientesDashboard();
+
+// ATUALIZAR TOTAL DE CONSULTAS MARCADOS
+function carregarProximasConsultas(): void {
+  const consultasSalvas = localStorage.getItem("consultas");
+  const listaConsultas = consultasSalvas ? JSON.parse(consultasSalvas) : [];
+
+  const listaProximasConsultas = document.querySelector(".lista-proxima-consultas ul") as HTMLUListElement;
+  if (!listaProximasConsultas) return;
+
+  listaProximasConsultas.innerHTML = "";
+
+  listaConsultas.forEach((consulta: any) => {
+    const item = document.createElement("li");
+    item.innerHTML = `
+      <h1>${consulta.paciente}</h1>
+      <h2>${consulta.medico}</h2>
+    `;
+    listaProximasConsultas.appendChild(item);
+  });
+}
+
+function atualizarTotalConsultasDashboard(): void {
+  const consultasSalvas = localStorage.getItem("consultas");
+  const listaConsultas = consultasSalvas ? JSON.parse(consultasSalvas) : [];
+
+  const totalConsultasSpan = document.getElementById("total-consultas") as HTMLSpanElement;
+  if (totalConsultasSpan) {
+    totalConsultasSpan.textContent = listaConsultas.length.toString();
+  }
+}
+
+carregarProximasConsultas();
+atualizarTotalConsultasDashboard();

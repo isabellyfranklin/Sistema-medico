@@ -34,32 +34,39 @@
 
         <section class="gerenciamento">
 
-                <form action="">
-                <h3><img  class="img-novo-medico" src="../img/icon-calendar-42.svg" alt="">Novo Consulta</h3>
+            <form action="">
+                <h3><img class="img-novo-medico" src="../img/icon-calendar-42.svg" alt="">Nova Consulta</h3>
                 <p>Agende uma nova consulta</p>
 
-                <label for="">Medico*</label>
-                      
-                <label for="">Paciente*</label>
+                <label for="select-medico">Médico*</label>
+                <select id="select-medico" required>
+                    <option value="">Selecione um médico</option>
+                </select>
+
+                <label for="select-paciente">Paciente*</label>
+                <select id="select-paciente" required>
+                 <option value="">Selecione um paciente</option>
+                </select>
 
                 <label for="data-consulta">Data*</label>
-                <input type="date" name="" id="">
+                <input type="date" id="data-consulta" required>
 
-                <label for="">Horário*</label>
-                <input type="time">
+                <label for="horario-consulta">Horário*</label>
+                <input type="time" id="horario-consulta" required>
 
-                <label for="">Observaçoes</label>
-                <input type="text">
-           
+                <label for="obs-consulta">Observações</label>
+                <input type="text" id="obs-consulta" maxlength="200">
 
                 <div class="btns">
-                    <button type="button" class="btn-salvar" onclick="agendarConsulta()">Cadastrar Médico</button>
-                    <button type="button" class="btn-cancelar" onclick="cancelarConsulta()"
-                    ><span class="material-symbols-outlined">close</span>
-                    Cancelar</button>
+                    <button type="button" class="btn-salvar" onclick="agendarConsulta()">Agendar Consulta</button>
+                    <button type="button" class="btn-cancelar" onclick="cancelarConsulta()">
+                        <span class="material-symbols-outlined">close</span>
+                        Cancelar
+                    </button>
                 </div>
-    
-            </form>
+</form>
+
+             
 
                 <article class="no-sistema">
                     <h3>Consultas Agendadas</h3>
@@ -69,11 +76,12 @@
                         <table class="tabela" id="tabela-consultas-agendadas">
                         <thead>
                             <tr>
-                                <th>Nome</th>
-                                <th>CPF</th>
-                                <th>Nascimento</th>
-                                <th>Telefone</th>
-                                <th>E-mail</th>
+                                <th>Paciente</th>
+                                <th>Médico</th>
+                                <th>Data</th>
+                                <th>Horário</th>
+                                <th>Observações</th>
+                                <th>Ações<th>                             
                             </tr>
                     </thead>
                     <tbody id="tconsultas-agendadas">
@@ -96,6 +104,6 @@
 
 
 
-    <script src="../dist/script.js"></script>
+    <script src="../dist/consulta.js"></script>
 </body>
 </html>
