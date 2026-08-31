@@ -20,7 +20,7 @@ function salvarFormularioMedico() {
     <td> 
     <button
      class="btn-excluir"
-     onclick="this.closest('tr').remove()"
+     onclick="excluirMedico(this)"
      ><img src="../img/icon-trash.svg" alt="Icone excluir">
      </button>
      </td>
@@ -46,9 +46,8 @@ function salvarFormularioMedico() {
     telMedico.value = "";
     emailMedico.value = "";
 }
-// REMOVER MEDICO
+// REMOVER MEDICO (limpar formulário)
 function limparFormularioMedico() {
-    const listaTabelaMedico = document.getElementById("medicos-cadastrado");
     const nomeMedico = document.getElementById("nome-medico");
     const crmMedico = document.getElementById("crm");
     const especialidadeMedico = document.getElementById("especialidade-medico");
@@ -59,6 +58,17 @@ function limparFormularioMedico() {
     especialidadeMedico.value = "";
     telMedico.value = "";
     emailMedico.value = "";
+}
+// EXCLUIR MÉDICO DE VERDADE (tela + localStorage)
+function excluirMedico(botao) {
+    const linha = botao.closest("tr");
+    const indice = Array.from(linha.parentElement.children).indexOf(linha);
+    linha.remove();
+    const medicosSalvos = localStorage.getItem("medicos");
+    const listaMedicos = medicosSalvos ? JSON.parse(medicosSalvos) : [];
+    listaMedicos.splice(indice, 1);
+    localStorage.setItem("medicos", JSON.stringify(listaMedicos));
+    atualizarTotalMedicos();
 }
 function carregarMedicosSalvos() {
     const listaTabelaMedico = document.getElementById("medicos-cadastrado");
@@ -73,7 +83,7 @@ function carregarMedicosSalvos() {
       <td>${medico.telefone}</td>
       <td>${medico.email}</td>
       <td>
-        <button class="btn-excluir" onclick="this.closest('tr').remove()">
+        <button class="btn-excluir" onclick="excluirMedico(this)">
           <img src="../img/icon-trash.svg" alt="Icone excluir">
         </button>
       </td>

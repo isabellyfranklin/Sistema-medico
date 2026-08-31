@@ -1,10 +1,9 @@
-function clickMenuMedico():void{
+function clickMenuMedico(): void {
     const navBar = document.getElementById("navbar-list")
-    
-      navBar?.classList.toggle("ativo")
-  }
+    navBar?.classList.toggle("ativo")
+}
 
-function salvarFormularioMedico():void {
+function salvarFormularioMedico(): void {
 
   const listaTabelaMedico = document.getElementById("medicos-cadastrado") as HTMLTableSectionElement
   const nomeMedico = document.getElementById("nome-medico") as HTMLInputElement
@@ -23,7 +22,7 @@ function salvarFormularioMedico():void {
     <td> 
     <button
      class="btn-excluir"
-     onclick="this.closest('tr').remove()"
+     onclick="excluirMedico(this)"
      ><img src="../img/icon-trash.svg" alt="Icone excluir">
      </button>
      </td>
@@ -55,10 +54,9 @@ function salvarFormularioMedico():void {
 
 }
 
-// REMOVER MEDICO
-function limparFormularioMedico():void {
+// REMOVER MEDICO (limpar formulário)
+function limparFormularioMedico(): void {
 
-  const listaTabelaMedico = document.getElementById("medicos-cadastrado") as HTMLTableSectionElement;
   const nomeMedico = document.getElementById("nome-medico") as HTMLInputElement
   const crmMedico = document.getElementById("crm") as HTMLInputElement
   const especialidadeMedico = document.getElementById("especialidade-medico") as HTMLSelectElement;
@@ -70,6 +68,22 @@ function limparFormularioMedico():void {
   especialidadeMedico.value = ""
   telMedico.value = ""
   emailMedico.value = ""
+}
+
+// EXCLUIR MÉDICO DE VERDADE (tela + localStorage)
+function excluirMedico(botao: HTMLButtonElement): void {
+  const linha = botao.closest("tr") as HTMLTableRowElement;
+  const indice = Array.from(linha.parentElement!.children).indexOf(linha);
+
+  linha.remove();
+
+  const medicosSalvos = localStorage.getItem("medicos");
+  const listaMedicos = medicosSalvos ? JSON.parse(medicosSalvos) : [];
+
+  listaMedicos.splice(indice, 1);
+  localStorage.setItem("medicos", JSON.stringify(listaMedicos));
+
+  atualizarTotalMedicos();
 }
 
 function carregarMedicosSalvos(): void {
@@ -86,7 +100,7 @@ function carregarMedicosSalvos(): void {
       <td>${medico.telefone}</td>
       <td>${medico.email}</td>
       <td>
-        <button class="btn-excluir" onclick="this.closest('tr').remove()">
+        <button class="btn-excluir" onclick="excluirMedico(this)">
           <img src="../img/icon-trash.svg" alt="Icone excluir">
         </button>
       </td>
@@ -113,4 +127,3 @@ function atualizarTotalMedicos(): void {
 
   localStorage.setItem("total-medicos", totalAtual.toString());
 }
-

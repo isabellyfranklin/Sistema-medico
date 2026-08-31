@@ -1,9 +1,8 @@
 // MENU 
-function clickMenu():void{
+function clickMenu(): void {
     const navBar = document.getElementById("navbar-list")
-      navBar?.classList.toggle("ativo")
-
-  }
+    navBar?.classList.toggle("ativo")
+}
 
 // ATUALIZAR TOTAL DE MEDICO
 function atualizarTotalMedicosDashboard(): void {
@@ -14,10 +13,6 @@ function atualizarTotalMedicosDashboard(): void {
   if (totalMedicoSpan) {
     totalMedicoSpan.textContent = listaMedicos.length.toString();
   }
-}
-
-if (document.getElementById("medicos-cadastrado")) {
-  carregarMedicosSalvos();
 }
 
 atualizarTotalMedicosDashboard();
@@ -33,13 +28,14 @@ function atualizarTotalPacientesDashboard(): void {
   }
 }
 
-if (document.getElementById("paciente-cadastrado")) {
-  carregarPacientesSalvos();
-}
-
 atualizarTotalPacientesDashboard();
 
 // ATUALIZAR TOTAL DE CONSULTAS MARCADOS
+function formatarData(data: string): string {
+  const [ano, mes, dia] = data.split("-");
+  return `${dia}/${mes}/${ano}`;
+}
+
 function carregarProximasConsultas(): void {
   const consultasSalvas = localStorage.getItem("consultas");
   const listaConsultas = consultasSalvas ? JSON.parse(consultasSalvas) : [];
@@ -53,7 +49,7 @@ function carregarProximasConsultas(): void {
     const item = document.createElement("li");
     item.innerHTML = `
       <h1>${consulta.paciente}</h1>
-      <h2>${consulta.medico}</h2>
+      <h2>Dr(a). ${consulta.medico} — ${formatarData(consulta.data)} às ${consulta.horario}</h2>
     `;
     listaProximasConsultas.appendChild(item);
   });
@@ -71,3 +67,17 @@ function atualizarTotalConsultasDashboard(): void {
 
 carregarProximasConsultas();
 atualizarTotalConsultasDashboard();
+
+
+// ATUALIZAR TOTAL DE AGENDAMENTOS (mesmo total de consultas)
+function atualizarTotalAgendamentosDashboard(): void {
+  const consultasSalvas = localStorage.getItem("consultas");
+  const listaConsultas = consultasSalvas ? JSON.parse(consultasSalvas) : [];
+
+  const totalAgendamentosSpan = document.getElementById("total-agendamentos") as HTMLSpanElement;
+  if (totalAgendamentosSpan) {
+    totalAgendamentosSpan.textContent = listaConsultas.length.toString();
+  }
+}
+
+atualizarTotalAgendamentosDashboard();

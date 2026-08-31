@@ -16,7 +16,7 @@ function salvarFormularioPaciente() {
     <td>${telefonePaciente.value}</td>
     <td>${emailPaciente.value}</td>  
     <td>
-    <button class="btn-excluir" onclick="this.closest('tr').remove()">
+    <button class="btn-excluir" onclick="excluirPaciente(this)">
         <img src="../img/icon-trash.svg" alt="Icone excluir">
       </button>
     </td>  
@@ -35,8 +35,7 @@ function salvarFormularioPaciente() {
     const listaPaciente = pacientesSalvos ? JSON.parse(pacientesSalvos) : [];
     listaPaciente.push(salvaPaciente);
     localStorage.setItem("pacientes", JSON.stringify(listaPaciente));
-    atualizarTotalPacientes(); // ← atualiza o total na própria página
-    // limpa o formulário depois de salvar
+    atualizarTotalPacientes();
     nomePaciente.value = "";
     cpfPaciente.value = "";
     nasciPaciente.value = "";
@@ -58,6 +57,17 @@ function limparFormularioPaciente() {
     emailPaciente.value = "";
     enderecoPaciente.value = "";
 }
+// EXCLUIR PACIENTE DE VERDADE (tela + localStorage)
+function excluirPaciente(botao) {
+    const linha = botao.closest("tr");
+    const indice = Array.from(linha.parentElement.children).indexOf(linha);
+    linha.remove();
+    const pacientesSalvos = localStorage.getItem("pacientes");
+    const listaPaciente = pacientesSalvos ? JSON.parse(pacientesSalvos) : [];
+    listaPaciente.splice(indice, 1);
+    localStorage.setItem("pacientes", JSON.stringify(listaPaciente));
+    atualizarTotalPacientes();
+}
 function carregarPacientesSalvos() {
     const tabelaPaciente = document.getElementById("paciente-cadastrado");
     const pacientesSalvos = localStorage.getItem("pacientes");
@@ -71,7 +81,7 @@ function carregarPacientesSalvos() {
       <td>${paciente.telefone}</td>
       <td>${paciente.email}</td>
       <td>
-        <button class="btn-excluir" onclick="this.closest('tr').remove()">
+        <button class="btn-excluir" onclick="excluirPaciente(this)">
           <img src="../img/icon-trash.svg" alt="Icone excluir">
         </button>
       </td>
@@ -80,7 +90,6 @@ function carregarPacientesSalvos() {
     });
     atualizarTotalPacientes();
 }
-// ATUALIZAR TOTAL DE PACIENTE EM SUA PROPRIA PAGINA 
 function atualizarTotalPacientes() {
     const totalAtual = document.querySelectorAll("#paciente-cadastrado tr").length;
     const totalSpanPaciente = document.getElementById("total-de-pacientes-cadastrados");

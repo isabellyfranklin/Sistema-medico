@@ -17,7 +17,7 @@ function salvarFormularioPaciente(): void {
     <td>${telefonePaciente.value}</td>
     <td>${emailPaciente.value}</td>  
     <td>
-    <button class="btn-excluir" onclick="this.closest('tr').remove()">
+    <button class="btn-excluir" onclick="excluirPaciente(this)">
         <img src="../img/icon-trash.svg" alt="Icone excluir">
       </button>
     </td>  
@@ -39,9 +39,8 @@ function salvarFormularioPaciente(): void {
   listaPaciente.push(salvaPaciente);
   localStorage.setItem("pacientes", JSON.stringify(listaPaciente))
 
-  atualizarTotalPacientes(); // ← atualiza o total na própria página
+  atualizarTotalPacientes();
 
-  // limpa o formulário depois de salvar
   nomePaciente.value = ""
   cpfPaciente.value = ""
   nasciPaciente.value = ""
@@ -67,6 +66,22 @@ function limparFormularioPaciente(): void {
   enderecoPaciente.value = ""
 }
 
+// EXCLUIR PACIENTE DE VERDADE (tela + localStorage)
+function excluirPaciente(botao: HTMLButtonElement): void {
+  const linha = botao.closest("tr") as HTMLTableRowElement;
+  const indice = Array.from(linha.parentElement!.children).indexOf(linha);
+
+  linha.remove();
+
+  const pacientesSalvos = localStorage.getItem("pacientes");
+  const listaPaciente = pacientesSalvos ? JSON.parse(pacientesSalvos) : [];
+
+  listaPaciente.splice(indice, 1);
+  localStorage.setItem("pacientes", JSON.stringify(listaPaciente));
+
+  atualizarTotalPacientes();
+}
+
 function carregarPacientesSalvos(): void {
   const tabelaPaciente = document.getElementById("paciente-cadastrado") as HTMLTableSectionElement
   const pacientesSalvos = localStorage.getItem("pacientes")
@@ -81,7 +96,7 @@ function carregarPacientesSalvos(): void {
       <td>${paciente.telefone}</td>
       <td>${paciente.email}</td>
       <td>
-        <button class="btn-excluir" onclick="this.closest('tr').remove()">
+        <button class="btn-excluir" onclick="excluirPaciente(this)">
           <img src="../img/icon-trash.svg" alt="Icone excluir">
         </button>
       </td>
@@ -92,7 +107,6 @@ function carregarPacientesSalvos(): void {
   atualizarTotalPacientes();
 }
 
-// ATUALIZAR TOTAL DE PACIENTE EM SUA PROPRIA PAGINA 
 function atualizarTotalPacientes(): void {
   const totalAtual = document.querySelectorAll("#paciente-cadastrado tr").length
 
@@ -101,4 +115,3 @@ function atualizarTotalPacientes(): void {
     totalSpanPaciente.textContent = totalAtual.toString()
   }
 }
-

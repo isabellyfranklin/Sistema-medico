@@ -1,6 +1,5 @@
 "use strict";
 // ÁREA CONSULTA
-// preenche os selects com médicos e pacientes já cadastrados
 function carregarSelects() {
     const medicosSalvos = localStorage.getItem("medicos");
     const listaMedicos = medicosSalvos ? JSON.parse(medicosSalvos) : [];
@@ -36,13 +35,12 @@ function agendarConsulta() {
     <td>${horarioConsulta.value}</td>
     <td>${obsConsulta.value}</td>
     <td>
-      <button class="btn-excluir" onclick="this.closest('tr').remove()">
+      <button class="btn-excluir" onclick="excluirConsulta(this)">
         <img src="../img/icon-trash.svg" alt="Icone excluir">
       </button>
     </td>
   `;
     tabelaConsultas.appendChild(novaLinha);
-    // salva no localStorage
     const novaConsulta = {
         paciente: selectPaciente.value,
         medico: selectMedico.value,
@@ -55,7 +53,6 @@ function agendarConsulta() {
     listaConsultas.push(novaConsulta);
     localStorage.setItem("consultas", JSON.stringify(listaConsultas));
     atualizarTotalConsultas();
-    // limpa o formulário
     selectMedico.value = "";
     selectPaciente.value = "";
     dataConsulta.value = "";
@@ -74,6 +71,17 @@ function cancelarConsulta() {
     horarioConsulta.value = "";
     obsConsulta.value = "";
 }
+// EXCLUIR CONSULTA DE VERDADE (tela + localStorage)
+function excluirConsulta(botao) {
+    const linha = botao.closest("tr");
+    const indice = Array.from(linha.parentElement.children).indexOf(linha);
+    linha.remove();
+    const consultasSalvas = localStorage.getItem("consultas");
+    const listaConsultas = consultasSalvas ? JSON.parse(consultasSalvas) : [];
+    listaConsultas.splice(indice, 1);
+    localStorage.setItem("consultas", JSON.stringify(listaConsultas));
+    atualizarTotalConsultas();
+}
 function carregarConsultasSalvas() {
     const tabelaConsultas = document.getElementById("tconsultas-agendadas");
     const consultasSalvas = localStorage.getItem("consultas");
@@ -87,7 +95,7 @@ function carregarConsultasSalvas() {
       <td>${consulta.horario}</td>
       <td>${consulta.observacoes}</td>
       <td>
-        <button class="btn-excluir" onclick="this.closest('tr').remove()">
+        <button class="btn-excluir" onclick="excluirConsulta(this)">
           <img src="../img/icon-trash.svg" alt="Icone excluir">
         </button>
       </td>
@@ -103,7 +111,6 @@ function atualizarTotalConsultas() {
         totalSpan.textContent = totalAtual.toString();
     }
 }
-// roda só se a página tiver os elementos de consulta
 if (document.getElementById("select-medico")) {
     carregarSelects();
     carregarConsultasSalvas();

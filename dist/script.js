@@ -13,9 +13,6 @@ function atualizarTotalMedicosDashboard() {
         totalMedicoSpan.textContent = listaMedicos.length.toString();
     }
 }
-if (document.getElementById("medicos-cadastrado")) {
-    carregarMedicosSalvos();
-}
 atualizarTotalMedicosDashboard();
 // ATUALIZAR TOTAL DE PACIENTE
 function atualizarTotalPacientesDashboard() {
@@ -26,11 +23,12 @@ function atualizarTotalPacientesDashboard() {
         totalPacienteSpan.textContent = listaPacientes.length.toString();
     }
 }
-if (document.getElementById("paciente-cadastrado")) {
-    carregarPacientesSalvos();
-}
 atualizarTotalPacientesDashboard();
 // ATUALIZAR TOTAL DE CONSULTAS MARCADOS
+function formatarData(data) {
+    const [ano, mes, dia] = data.split("-");
+    return `${dia}/${mes}/${ano}`;
+}
 function carregarProximasConsultas() {
     const consultasSalvas = localStorage.getItem("consultas");
     const listaConsultas = consultasSalvas ? JSON.parse(consultasSalvas) : [];
@@ -42,7 +40,7 @@ function carregarProximasConsultas() {
         const item = document.createElement("li");
         item.innerHTML = `
       <h1>${consulta.paciente}</h1>
-      <h2>${consulta.medico}</h2>
+      <h2>Dr(a). ${consulta.medico} — ${formatarData(consulta.data)} às ${consulta.horario}</h2>
     `;
         listaProximasConsultas.appendChild(item);
     });
@@ -57,4 +55,14 @@ function atualizarTotalConsultasDashboard() {
 }
 carregarProximasConsultas();
 atualizarTotalConsultasDashboard();
+// ATUALIZAR TOTAL DE AGENDAMENTOS (mesmo total de consultas)
+function atualizarTotalAgendamentosDashboard() {
+    const consultasSalvas = localStorage.getItem("consultas");
+    const listaConsultas = consultasSalvas ? JSON.parse(consultasSalvas) : [];
+    const totalAgendamentosSpan = document.getElementById("total-agendamentos");
+    if (totalAgendamentosSpan) {
+        totalAgendamentosSpan.textContent = listaConsultas.length.toString();
+    }
+}
+atualizarTotalAgendamentosDashboard();
 //# sourceMappingURL=script.js.map
