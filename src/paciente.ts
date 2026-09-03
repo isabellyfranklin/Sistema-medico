@@ -1,3 +1,8 @@
+function clickMenuPaciente(): void {
+    const navBar = document.getElementById("navbar-list")
+    navBar?.classList.toggle("ativo")
+}
+
 //ÁREA PACIENTE
 function salvarFormularioPaciente(): void {
 
@@ -24,7 +29,6 @@ function salvarFormularioPaciente(): void {
   `;
   tabelaPaciente.appendChild(novaLinhaPaciente)
 
-  //parte de localStorage
   const salvaPaciente = {
     nome: nomePaciente.value,
     cpf: cpfPaciente.value,
@@ -114,4 +118,8 @@ function atualizarTotalPacientes(): void {
   if (totalSpanPaciente) {
     totalSpanPaciente.textContent = totalAtual.toString()
   }
+}
+
+if (document.getElementById("paciente-cadastrado")) {
+  carregarPacientesSalvos();
 }

@@ -1,3 +1,8 @@
+function clickMenuConsulta(): void {
+    const navBar = document.getElementById("navbar-list")
+    navBar?.classList.toggle("ativo")
+}
+
 // ÁREA CONSULTA
 function carregarSelects(): void {
   const medicosSalvos = localStorage.getItem("medicos")

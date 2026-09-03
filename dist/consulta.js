@@ -1,4 +1,8 @@
 "use strict";
+function clickMenuConsulta() {
+    const navBar = document.getElementById("navbar-list");
+    navBar?.classList.toggle("ativo");
+}
 // ÁREA CONSULTA
 function carregarSelects() {
     const medicosSalvos = localStorage.getItem("medicos");

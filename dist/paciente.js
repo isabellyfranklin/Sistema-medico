@@ -1,4 +1,8 @@
 "use strict";
+function clickMenuPaciente() {
+    const navBar = document.getElementById("navbar-list");
+    navBar?.classList.toggle("ativo");
+}
 //ÁREA PACIENTE
 function salvarFormularioPaciente() {
     const tabelaPaciente = document.getElementById("paciente-cadastrado");
@@ -22,7 +26,6 @@ function salvarFormularioPaciente() {
     </td>  
   `;
     tabelaPaciente.appendChild(novaLinhaPaciente);
-    //parte de localStorage
     const salvaPaciente = {
         nome: nomePaciente.value,
         cpf: cpfPaciente.value,
@@ -96,5 +99,8 @@ function atualizarTotalPacientes() {
     if (totalSpanPaciente) {
         totalSpanPaciente.textContent = totalAtual.toString();
     }
+}
+if (document.getElementById("paciente-cadastrado")) {
+    carregarPacientesSalvos();
 }
 //# sourceMappingURL=paciente.js.map
